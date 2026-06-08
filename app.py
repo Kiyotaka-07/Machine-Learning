@@ -45,7 +45,7 @@ st.markdown("""
 <style>
 
 .main {
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 .stButton>button {
@@ -81,13 +81,7 @@ with st.sidebar:
     st.write("""
     This application predicts vehicle
     **CO₂ emissions (g/km)** using a trained
-    Machine Learning model.
-
-    ### Models Used
-    - XGBoost
-    - Random Forest
-    - Decision Tree
-    - Linear Regression
+    Machine Learning eXtreme Gradient Boosting (XGBoost) model.
 
     ### Input Features
     - Engine Size
@@ -100,11 +94,19 @@ with st.sidebar:
 # =========================
 # TITLE
 # =========================
-st.title("🚗 CO₂ Emission Predictor")
+st.markdown(
+    """
+    <h1 style='text-align: center;'>
+        🚗 CO₂ Emission Predictor
+    </h1>
 
-st.write("""
-Predict vehicle CO₂ emissions using a Machine Learning model trained on vehicle specifications.
-""")
+    <p style='text-align: center; font-size:18px;'>
+        Predict vehicle CO₂ emissions using a 
+        Machine Learning model trained on vehicle specifications.
+    </p>
+    """,
+    unsafe_allow_html=True
+)
 
 st.divider()
 
@@ -155,6 +157,39 @@ st.divider()
 # =========================
 # PREDICTION
 # =========================
+
+# Buat efek button
+st.markdown("""
+<style>
+
+/* button normal */
+div.stButton > button {
+    background-color: #F24629;
+    color: white;
+    border-radius: 10px;
+    height: 3em;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    transition: 0.3s;
+}
+
+/* hover effect */
+div.stButton > button:hover {
+    background-color: #F0ABA3;
+    color: white;
+    transform: scale(1.02);
+}
+
+/* click effect */
+div.stButton > button:active {
+    transform: scale(0.97);
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 if st.button("Predict CO₂ Emission"):
 
     input_data = {
@@ -205,11 +240,11 @@ if st.button("Predict CO₂ Emission"):
 # =========================
 st.divider()
 
-st.markdown(
-    """
-    <p class="small-text">
-    Built with Streamlit and Machine Learning.
-    </p>
-    """,
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     """
+#     <p class="small-text">
+#     Built with Streamlit and Machine Learning.
+#     </p>
+#     """,
+#     unsafe_allow_html=True
+# )

@@ -86,8 +86,8 @@ with st.sidebar:
     ### Input Features
     - Engine Size
     - Cylinders
-    - Vehicle Class
-    - Transmission
+    - Vehicle Weight Class
+    - Transmission Type
     - Fuel Type
     """)
 
@@ -102,7 +102,7 @@ st.markdown(
 
     <p style='text-align: center; font-size:18px;'>
         Predict vehicle CO₂ emissions using a 
-        Machine Learning model trained on vehicle specifications.
+        Machine Learning model (XGBoost) trained on vehicle specifications.
     </p>
     """,
     unsafe_allow_html=True
@@ -140,12 +140,12 @@ with col2:
 
     transmission = st.selectbox(
         "Transmission Type",
-        ['A', 'AM', 'AS', 'AV', 'M']
+        ['A (Automatic)', 'AM (Automated Manual)', 'AS (Automatic with Select Shift)', 'AV (Continuously Variable)', 'M (Manual)']
     )
 
 fuel = st.selectbox(
     "Fuel Type",
-    ['D', 'E', 'N', 'X', 'Z']
+    ['D (Diesel)', 'E (Ethanol)', 'N (Natural Gas)', 'X (Regular)', 'Z (Premium)']
 )
 
 vehicle_weight = vehicle_weights[vehicle_class]
